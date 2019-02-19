@@ -24,23 +24,28 @@ int main(int argc, char *argv[])
 {
     float angle = 0.0;
 
-    float radius;
     int i = 0;
-    int Ax, Ay;
-    Point2 vertex[2];
-    cin >> Ax;
-    cin >> Ay;
-    cin >> radius;
+    int Ax, Ay, radius;
+    Point2 vertex[1];
 
-    //Ax = atoi(argv[1]);
-    //Ay = atoi(argv[2]);
-    //radius = atoi(argv[3]);
+    Ax = atoi(argv[1]);
+    Ay = atoi(argv[2]);
+    radius = atoi(argv[3]);
+    
+    if (argc !=4)
+    {
+        cout << "Формат ввода: координаты точки радиус окружности \n ";
+        return -1;
+    }
+    
     angle = acos((-Ax)/(sqrt((Ax)*(Ax) + (Ay)*(Ay)) * sqrt(radius*radius)));
     
+    if (Ay>0)
+        vertex[i] = Point2::Polar(-radius, angle);
+    else
+        vertex[i] = Point2::Polar(radius, angle);
     
-    vertex[i] = Point2::Polar(radius, angle);
-    cout << "(" << vertex[i].getx() << ";" << vertex[i].gety() << ")" << endl;
+    cout << "Координаты искомой точки окружности " << "(" << vertex[i].getx() << ";" << vertex[i].gety() << ")" << endl;
    
-    
     return 0;
 }
