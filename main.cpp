@@ -38,6 +38,12 @@ int main(int argc, char *argv[])
         return -1;
     }
     
+    if ((Ax && Ay) ==0)
+    {
+        cout << "Искомых точек бесконечное множество \n ";
+        return -2;
+    }
+    
     angle = acos((-Ax)/(sqrt((Ax)*(Ax) + (Ay)*(Ay)) * sqrt(radius*radius)));
     
     if (Ay>0)
